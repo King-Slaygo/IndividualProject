@@ -87,12 +87,12 @@ public class UtilDBAldarei {
       return resultList;
    }
 
-   public static void createStudents(String firstName, String lastName, String age, String email) {
+   public static void createStudents(String firstName, String lastName, String age, String email, String gpa) {
       Session session = getSessionFactory().openSession();
       Transaction tx = null;
       try {
          tx = session.beginTransaction();
-         session.save(new StudentList(firstName, lastName, age, email));
+         session.save(new StudentList(firstName, lastName, Integer.valueOf(age), email, Double.valueOf(gpa)));
          tx.commit();
       } catch (HibernateException e) {
          if (tx != null)

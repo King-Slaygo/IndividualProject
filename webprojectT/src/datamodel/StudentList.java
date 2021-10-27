@@ -15,7 +15,7 @@ import javax.persistence.Table;
   PRIMARY KEY (id));
  */
 @Entity
-@Table(name = "studentinformatio")
+@Table(name = "studentinformation")
 public class StudentList {
 
    @Id  // primary key
@@ -30,10 +30,13 @@ public class StudentList {
    private String lastName;
    
    @Column(name = "age")
-   private String age;
+   private Integer age;
 
    @Column(name = "email")
    private String email;
+   
+   @Column(name = "gpa")
+   private Double gpa;
 
    
 public StudentList() {
@@ -41,20 +44,23 @@ public StudentList() {
 }
 
 
-public StudentList(Integer id, String firstName, String lastName, String age, String email) {
+public StudentList(Integer id, String firstName, String lastName, Integer age, String email, Double gpa) {
 	this.id = id;
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.age = age;
 	this.email = email;
+	this.gpa = gpa;
 }
 
 
-public StudentList(String firstName, String lastName, String age, String email) {
+
+public StudentList(String firstName, String lastName, Integer age, String email, Double gpa) {
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.age = age;
 	this.email = email;
+	this.gpa = gpa;
 }
 
 
@@ -78,12 +84,12 @@ public void setLastName(String lastName) {
 }
 
 
-public String getAge() {
+public Integer getAge() {
 	return age;
 }
 
 
-public void setAge(String age) {
+public void setAge(Integer age) {
 	this.age = age;
 }
 
@@ -106,11 +112,22 @@ public void setId(Integer id) {
 	this.id = id;
 }
 
+public Double getGPA() {
+	return gpa;
+}
+
+
+public void setGPA(Double gpa) {
+	this.gpa = gpa;
+}
+
+
 @Override
 public String toString() {
-	return "MyEmployeeAldarei [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age
-			+ ", email=" + email + "]";
+	return "StudentList [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", email="
+			+ email + ", gpa=" + gpa + "]";
 }
+
 
 
 

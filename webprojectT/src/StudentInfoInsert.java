@@ -23,7 +23,8 @@ public class StudentInfoInsert extends HttpServlet implements Info {
       String lastName = request.getParameter("lastName").trim();
       String age = request.getParameter("age").trim();
       String email = request.getParameter("email").trim();
-      UtilDBAldarei.createStudents(firstName, lastName, age, email);
+      String gpa = request.getParameter("gpa").trim();
+      UtilDBAldarei.createStudents(firstName, lastName, age, email, gpa);
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
@@ -39,6 +40,7 @@ public class StudentInfoInsert extends HttpServlet implements Info {
       out.println("<li> Last Name: " + lastName);
       out.println("<li> Age: " + age);
       out.println("<li> Email: " + email);
+      out.println("<li> GPA: " + gpa);
       out.println("</ul>");
       out.println("<a href=/" + projectName + "/" + searchWebName + ">Search Student</a> <br>");
       out.println("</body></html>");
